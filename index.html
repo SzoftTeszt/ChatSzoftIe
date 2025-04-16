@@ -11,23 +11,28 @@
     
     <div class="container">
       <h1 class="display-1 my-5 pb-5">Chat2</h1>
-      
+
       <button id="google" type="button" class="my-3 btn btn-outline-primary">Sign In with Google</button>
       <button id="signout" type="button" class="my-3 btn btn-outline-primary">Sign Out</button>
 
-      <div class="row">
-        <div class="col">
-          
-          <div class="form-floating">
-            <textarea id="message" class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 100px"></textarea>
-            <label for="floatingTextarea2">Message</label>
-          </div> 
+      <div id="content">
 
-          <button id="send" type="button" class="my-3 btn btn-outline-primary">Send</button>
+        <div class="row">
+          <div class="col">
+            
+            <div class="form-floating">
+              <textarea id="message" class="form-control" placeholder="Leave a message here" id="floatingTextarea2" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Message</label>
+            </div> 
 
+            <button id="send" type="button" class="my-3 btn btn-outline-primary">Send</button>
+
+          </div>
         </div>
-      </div>
-      <div id="messages"></div>
+        <div id="messages" style="height:200px; overflow:scroll"></div>
+      
+      </div> 
+    
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

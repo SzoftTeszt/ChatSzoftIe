@@ -22,11 +22,14 @@ const messages = document.getElementById("messages")
 
 const googleBtn = document.getElementById("google")
 const signOutBtn = document.getElementById("signout")
+const content = document.getElementById("content")
 
 const api="https://chatworld-42a91-default-rtdb.europe-west1.firebasedatabase.app/messages.json"
 
 const auth= getAuth()
 const gProvider= new GoogleAuthProvider()
+
+
 
 let loggedUser={}
 
@@ -51,6 +54,9 @@ onAuthStateChanged(auth, user =>{
     googleBtn.classList.remove("d-none")
     googleBtn.classList.add("d-block")
 
+    content.classList.remove("d-block")
+    content.classList.add("d-none")
+
   }
   else{
     signOutBtn.classList.remove("d-none")
@@ -58,6 +64,10 @@ onAuthStateChanged(auth, user =>{
 
     googleBtn.classList.remove("d-block")
     googleBtn.classList.add("d-none")
+
+
+    content.classList.remove("d-none")
+    content.classList.add("d-block")
   } 
 })
 
@@ -87,7 +97,8 @@ async function sendMessage(){
 async function getAll(){
   const response = await fetch(api)
   const json= await response.json()
-  // console.log(json)
+
+
   messages.innerHTML=""
   for (const key in json) {
    
@@ -100,6 +111,10 @@ async function getAll(){
       messages.appendChild(div)
     
   }
+  const vege = document.createElement("div")
+  vege.id="vege"
+  messages.appendChild(vege)
+  vege.scrollIntoView({behavior: "smooth", inline: "nearest" })
 }
 
 getAll()
